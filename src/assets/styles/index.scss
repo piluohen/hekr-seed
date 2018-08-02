@@ -1,0 +1,10 @@
+// 这里编写一些自定义的样式，统一管理，便于后续维护
+@import "./variables.scss"; // 项目中用到的变量，目前仅考虑颜色变量
+@import "./element-ui.scss"; // element主题
+@import "./mixin.scss"; // 项目中用到的样式方法
+// 必须最后导出，否则不能被覆盖
+@import "./element-ui.scss"; // element主题
+
+@import "./iconfont.scss"; // 字体图标
+@import "./element-custom.scss"; // element样式重置
+@import "./hekr.scss"; // 自定义公共样式

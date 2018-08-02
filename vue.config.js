@@ -1,4 +1,10 @@
 // vue.config.js
+
+// const path = require('path')
+// function resolve (dir) {
+//   return path.join(__dirname, '..', dir)
+// }
+
 module.exports = {
   // 部署应用基本URL
   baseUrl: '/',
@@ -11,9 +17,12 @@ module.exports = {
     // }
   },
   devServer: {
-    proxy: ''
+    proxy: null
   },
   productionSourceMap: false,
+  // chainWebpack: config => {
+  //   config.resolve.alias.set('assets', resolve('src/assets'))
+  // },
   configureWebpack: config => {
     if (process.env.NODE_ENV === 'production') {
       // 为生产环境修改配置...

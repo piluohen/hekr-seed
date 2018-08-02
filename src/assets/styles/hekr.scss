@@ -1,0 +1,329 @@
+// 自定义公共类，统一使用 hekr- 命名
+* {
+  box-sizing: border-box;
+}
+
+p {
+  margin: 0;
+}
+
+.fn-right {
+  float: right;
+}
+
+.fn-left {
+  float: left;
+}
+
+// 弹框样式
+.hekr-dialog,
+.hekr-message-box {
+  border-radius: 10px;
+  .el-dialog__header,
+  .el-message-box__header{
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    background: $--hc-bg03;
+    border-radius: 10px 10px 0 0;
+    color: $--hc-f01;
+    .el-dialog__title,
+    .el-message-box__title {
+      font-size: 16px;
+      color: $--hc-f01;
+      line-height: inherit;
+    }
+    .el-dialog__headerbtn,
+    .el-message-box__headerbtn{
+      display: none;
+      top: 12px;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: $--hc-info;
+      .el-icon-close {
+        color: $--hc-white;
+      }
+    }
+  }
+  .el-dialog__body {
+    padding: 20px 20px 0 20px;
+    background-color: $--hc-white;
+  }
+  .el-dialog__footer {
+    padding-top: 0;
+    border-radius: 0 0 10px 10px;
+    background-color: $--hc-white;
+  }
+  .hekr-dialog-footer {
+    padding-bottom: 10px;
+    .hekr-btn {
+      width: 118px;
+    }
+  }
+  .el-message-box__btns {
+    .el-button--primary,
+    .el-button--primary:active {
+      background-color: $--hc-success;
+      border-color: $--hc-success;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.hekr-dialog {
+  margin: 0 !important;
+  max-height: 100%;
+}
+
+// 按钮
+.hekr-btn {
+  width: 138px;
+  font-size: 14px;
+  &.el-button--small {
+    padding: 8px 15px;
+  }
+  .iconfont {
+    margin-right: 5px;
+    font-size: 14px;
+  }
+}
+// form表单样式
+.hekr-form {
+  .el-form-item {
+    margin-bottom: 20px;
+    position: relative;
+    &.hekr-btn-group {
+      text-align: center;
+    }
+    .el-form-item__label {
+      position: absolute;
+      left: 10px;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      line-height: 32px;
+      z-index: 10;
+      text-align: left;
+      font-size: 12px;
+      color: $--hc-info;
+      &::before {
+        margin-top: 2px;
+      }
+    }
+    .el-form-item__content {
+      margin: 0 !important;
+      line-height: inherit;
+      .el-select {
+        width: 100%;
+      }
+      .el-input__inner,
+      .el-select__tags{
+        padding-left: 80px;
+      }
+      .el-textarea__inner {
+        resize: none;
+        color: $--hc-f01;
+        &[readonly] {
+          cursor: inherit;
+          border-color: transparent;
+        }
+      }
+    }
+    &.hekr-textarea {
+      .el-form-item__label {
+        position: inherit;
+        left: 0;
+      }
+    }
+  }
+}
+
+// 卡片样式
+.hekr-card,
+.hekr-card.is-always-shadow {
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow:0 6px 18px 0 rgba(164,164,164,0.16);
+  .el-card__header {
+    padding: 0 20px;
+    font-size: 14px;
+    color: $--hc-f01;
+    height: 40px;
+    display: flex;
+    align-items: center;
+  }
+  .el-card__body {
+    padding: 0;
+    overflow: auto;
+  }
+  .hekr-card-header {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .hekr-card-title {
+    font-weight: bold;
+  }
+}
+
+// 列表搜索区域样式
+.hekr-search-area {
+  padding: 0 20px;
+  font-size: 14px;
+  color: $--hc-info;
+  background-color: $--hc-white;
+  .hekr-search-item {
+    padding: 20px 0;
+    & + .hekr-search-item {
+      border-top: 1px dashed $--hc-b01;
+    }
+    .el-input__inner,
+    .el-range-input {
+      border: 1px solid $--hc-b01;
+      &:focus,
+      &.is-active {
+        border-color: $--hc-primary;
+      }
+    }
+    .el-range-input,
+    .el-range-input:focus {
+      border: none;
+    }
+    .el-range-separator {
+      padding: 0;
+      color: $--hc-info;
+      width: 16px;
+    }
+    .el-input {
+      width: 288px;
+    }
+    .el-select {
+      .el-input {
+        width: 178px;
+      }
+    }
+    .item {
+      display: inline-block;
+      margin-right: 20px;
+      border-radius: 6px;
+      background-color: #ffffff;
+      .label {
+        width: 100px;
+      }
+      &:first-child {
+        background-color: transparent;
+      }
+      &.fn-right {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.hekr-table-container {
+  padding-bottom: 20px;
+  .hekr-page-pagination {
+    text-align: right;
+    padding: 20px;
+  }
+}
+
+// 表格样式
+.hekr-table {
+  th {
+    height: 50px;
+    padding: 10px 0;
+    font-weight: normal;
+    color: $--hc-info;
+    font-size: 12px;
+    background-color: $--hc-bg02;
+  }
+  td {
+    padding: 13px 0;
+    color: $--hc-f01;
+    .cell {
+      font-size: 12px;
+    }
+  }
+  th,
+  td {
+    &:first-child,
+    &:last-child {
+      padding: 0 10px;
+    }
+  }
+  .el-table__empty-block {
+    min-height: 120px;
+  }
+}
+
+// 字体颜色
+.font-gray {
+  color: $--hc-info;
+}
+.font-primary {
+  color: $--hc-primary
+}
+.font-warn {
+  color: $--hc-warn
+}
+.font-success {
+  color: $--hc-success
+}
+.font-error {
+  color: $--hc-danger
+}
+
+// tag 标签
+.hekr-tag {
+  border-color: transparent;
+  text-align: center;
+  &.el-tag--info {
+    color: $--hc-info;
+    background-color: $--hc-bg03;
+  }
+}
+
+// 设备状态详情
+.hekr-device-status-list {
+  margin: 10px 0 20px 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  overflow: hidden;
+  .item {
+    width: 33.33%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 12px;
+    border-top: 1px solid $--hc-b01;
+    border-bottom: 1px solid $--hc-b01;
+    margin-bottom: -1px;
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3){
+      border-top: 1px solid transparent;
+    }
+    .hekr-device-status-value {
+      font-size: 13px;
+      font-weight: 700;
+      font-style: normal;
+    }
+  }
+}
+
+// 错误页
+.error-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-size: 200px;
+  color: #ffffff;
+  background: url('~@/assets/images/platformBg.jpg') no-repeat center center / cover;
+}
