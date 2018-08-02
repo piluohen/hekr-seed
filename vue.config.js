@@ -20,9 +20,9 @@ module.exports = {
     proxy: null
   },
   productionSourceMap: false,
-  // chainWebpack: config => {
-  //   config.resolve.alias.set('assets', resolve('src/assets'))
-  // },
+  chainWebpack: config => {
+    // config.resolve.alias.set('assets', resolve('src/assets'))
+  },
   configureWebpack: config => {
     if (process.env.NODE_ENV === 'production') {
       // 为生产环境修改配置...
