@@ -26,7 +26,7 @@ function filterAsyncRouter (navRouter, roles) {
 
 const route = {
   state: {
-    routes: publicRouter,
+    // routes: publicRouter,
     addRouters: []
   },
   mutations: {

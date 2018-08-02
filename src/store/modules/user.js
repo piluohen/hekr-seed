@@ -20,18 +20,18 @@ const getUserFromLocal = () => {
 const user = {
   state: {
     token: getUserFromLocal(),
-    roles: [],
+    // roles: [],
     isSuperAdmin: false,
-    protocol: [],
+    // protocol: [],
     userInfo: []
   },
   mutations: {
     SET_TOKEN: (state, token) => {
       state.token = token
     },
-    SET_ROLES: (state, roles) => {
-      state.roles = roles
-    },
+    // SET_ROLES: (state, roles) => {
+    //   state.roles = roles
+    // },
     SET_USERINFO: (state, userInfo) => {
       state.userInfo = userInfo
     },
@@ -69,7 +69,7 @@ const user = {
     GetInfo: ({ commit, state }) => {
       return new Promise((resolve, reject) => {
         getUserInfo().then(rsp => {
-          commit('SET_ROLES', rsp.role)
+          // commit('SET_ROLES', rsp.role)
           commit('SET_USERINFO', rsp)
           // if (rsp.role.includes('enterprise')) {
           //   commit('IS_SUPER_ADMIN', true)
