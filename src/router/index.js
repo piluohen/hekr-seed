@@ -11,9 +11,9 @@ import Layout from '@/components/layout/index.vue'
 Vue.use(Router)
 
 // 账号管理
-// const AccountUser = () => import('@/views/account/user/index.vue')
-const AccountRole = () => import('@/views/account/role/index.vue')
-// const AccountOplog = () => import('@/views/account/oplog.vue')
+const AccountUser = () => import('@/views/account/user/index.vue')
+// const AccountRole = () => import('@/views/account/role/index.vue')
+const AccountOplog = () => import('@/views/account/oplog.vue')
 
 // 公共基础路由
 export const publicRouter = [
@@ -30,45 +30,6 @@ export const publicRouter = [
     path: '/login',
     name: 'login',
     component: Login
-  },
-  {
-    path: '/account',
-    redirect: '/account/user',
-    component: Layout,
-    meta: {
-      title: '账号管理',
-      children: true,
-      authority: ['ZHGL']
-    },
-    children: [
-      // {
-      //   path: 'user',
-      //   // name: 'AccountUser',
-      //   meta: {
-      //     title: '用户管理',
-      //     authority: ['YHGL']
-      //   },
-      //   component: AccountUser
-      // },
-      {
-        path: 'role',
-        // name: 'AccountRole',
-        meta: {
-          title: '角色管理',
-          authority: ['JSGL']
-        },
-        component: AccountRole
-      }
-      // {
-      //   path: 'oplog',
-      //   // name: 'AccountOplog',
-      //   meta: {
-      //     title: '操作日志',
-      //     authority: ['CZRZ']
-      //   },
-      //   component: AccountOplog
-      // }
-    ]
   }
 ]
 
@@ -85,45 +46,45 @@ export default new Router({
 * hide: 是否隐藏子路由
 */
 export const navRouter = [
-  // {
-  //   path: '/account',
-  //   redirect: '/account/user',
-  //   component: Layout,
-  //   meta: {
-  //     title: '账号管理',
-  //     children: true,
-  //     authority: ['ZHGL']
-  //   },
-  //   children: [
-  //     {
-  //       path: 'user',
-  //       // name: 'AccountUser',
-  //       meta: {
-  //         title: '用户管理',
-  //         authority: ['YHGL']
-  //       },
-  //       component: AccountUser
-  //     },
-  //     {
-  //       path: 'role',
-  //       // name: 'AccountRole',
-  //       meta: {
-  //         title: '角色管理',
-  //         authority: ['JSGL']
-  //       },
-  //       component: AccountRole
-  //     }
-  //     // {
-  //     //   path: 'oplog',
-  //     //   // name: 'AccountOplog',
-  //     //   meta: {
-  //     //     title: '操作日志',
-  //     //     authority: ['CZRZ']
-  //     //   },
-  //     //   component: AccountOplog
-  //     // }
-  //   ]
-  // },
+  {
+    path: '/account',
+    redirect: '/account/user',
+    component: Layout,
+    meta: {
+      title: '账号管理',
+      children: true,
+      authority: ['ZHGL']
+    },
+    children: [
+      {
+        path: 'user',
+        // name: 'AccountUser',
+        meta: {
+          title: '用户管理',
+          authority: ['YHGL']
+        },
+        component: AccountUser
+      },
+      // {
+      //   path: 'role',
+      //   // name: 'AccountRole',
+      //   meta: {
+      //     title: '角色管理',
+      //     authority: ['JSGL']
+      //   },
+      //   component: AccountRole
+      // },
+      {
+        path: 'oplog',
+        // name: 'AccountOplog',
+        meta: {
+          title: '操作日志',
+          authority: ['CZRZ']
+        },
+        component: AccountOplog
+      }
+    ]
+  },
   {
     path: '*',
     redirect: '/404',
