@@ -1,4 +1,4 @@
-import { requestLogin, getUserInfo } from '@/api/login'
+import { loginApi, getUserInfoApi } from '@/api/login'
 import { getToken, setToken, removeToken } from '@/assets/utils/auth'
 
 // 获取本地存储信息
@@ -20,18 +20,13 @@ const getUserFromLocal = () => {
 const user = {
   state: {
     token: getUserFromLocal(),
-    // roles: [],
     isSuperAdmin: false,
-    // protocol: [],
     userInfo: []
   },
   mutations: {
     SET_TOKEN: (state, token) => {
       state.token = token
     },
-    // SET_ROLES: (state, roles) => {
-    //   state.roles = roles
-    // },
     SET_USERINFO: (state, userInfo) => {
       state.userInfo = userInfo
     },
@@ -51,7 +46,7 @@ const user = {
         pid: pid
       }
       return new Promise((resolve, reject) => {
-        requestLogin(loginData).then(rsp => {
+        loginApi(loginData).then(rsp => {
           const respToken = {
             access_token: rsp.access_token,
             refresh_token: rsp.refresh_token
@@ -68,7 +63,7 @@ const user = {
     },
     GetInfo: ({ commit, state }) => {
       return new Promise((resolve, reject) => {
-        getUserInfo().then(rsp => {
+        getUserInfoApi().then(rsp => {
           // commit('SET_ROLES', rsp.role)
           commit('SET_USERINFO', rsp)
           // if (rsp.role.includes('enterprise')) {

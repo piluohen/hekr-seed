@@ -3,7 +3,7 @@ import App from './App.vue'
 import store from './store/index'
 import router from './router/index'
 import ElementUI from 'element-ui'
-import '@/assets/utils/permission' // permission control
+import './permission' // permission control
 import HKCard from '@/components/hk-card'
 
 Vue.component(HKCard.name, HKCard)

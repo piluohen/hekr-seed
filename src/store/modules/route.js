@@ -1,5 +1,6 @@
 import { navRouter, publicRouter } from '@/router'
 
+// 判断是否有权限
 function hasPermission (roles, route) {
   if (route.meta && route.meta.authority) {
     return roles.some(role => route.meta.authority.includes(role))
@@ -8,6 +9,7 @@ function hasPermission (roles, route) {
   }
 }
 
+// 过滤路由
 function filterAsyncRouter (navRouter, roles) {
   const accessedRouters = navRouter.filter(route => {
     if (hasPermission(roles, route)) {
@@ -26,7 +28,6 @@ function filterAsyncRouter (navRouter, roles) {
 
 const route = {
   state: {
-    // routes: publicRouter,
     addRouters: []
   },
   mutations: {
@@ -38,12 +39,12 @@ const route = {
   actions: {
     GenerateRoutes: ({ commit }, { data }) => {
       return new Promise(resolve => {
-        const authorities = data.resouces
+        const roles = data.resouces
         let accessedRouters = navRouter
         // if (data.role.includes('enterprise')) {
         //   accessedRouters = navRouter
         // } else {
-        accessedRouters = filterAsyncRouter(navRouter, authorities)
+        accessedRouters = filterAsyncRouter(navRouter, roles)
         // }
         commit('SET_ROUTERS', accessedRouters)
         resolve()

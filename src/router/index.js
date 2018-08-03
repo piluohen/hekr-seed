@@ -12,7 +12,7 @@ Vue.use(Router)
 
 // 账号管理
 const AccountUser = () => import('@/views/account/user/index.vue')
-// const AccountRole = () => import('@/views/account/role/index.vue')
+const AccountRole = () => import('@/views/account/role/index.vue')
 const AccountOplog = () => import('@/views/account/oplog.vue')
 
 // 公共基础路由
@@ -58,25 +58,25 @@ export const navRouter = [
     children: [
       {
         path: 'user',
-        // name: 'AccountUser',
+        name: 'AccountUser',
         meta: {
           title: '用户管理',
           authority: ['YHGL']
         },
         component: AccountUser
       },
-      // {
-      //   path: 'role',
-      //   // name: 'AccountRole',
-      //   meta: {
-      //     title: '角色管理',
-      //     authority: ['JSGL']
-      //   },
-      //   component: AccountRole
-      // },
+      {
+        path: 'role',
+        name: 'AccountRole',
+        meta: {
+          title: '角色管理',
+          authority: ['JSGL']
+        },
+        component: AccountRole
+      },
       {
         path: 'oplog',
-        // name: 'AccountOplog',
+        name: 'AccountOplog',
         meta: {
           title: '操作日志',
           authority: ['CZRZ']
