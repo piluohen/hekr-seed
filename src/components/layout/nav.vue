@@ -106,7 +106,6 @@ export default {
 }
 </script>
 <style lang="scss">
-  @import "~@/assets/styles/variables.scss";
   $-hc-br: 2px;
   .app-nav {
     display: flex;

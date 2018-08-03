@@ -22,7 +22,6 @@ export default {
 }
 </script>
 <style lang="scss">
-@import "~@/assets/styles/variables.scss";
 .el-pagination.is-background {
   .el-pagination__jump {
     margin-left: 10px;

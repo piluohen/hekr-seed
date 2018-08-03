@@ -9,20 +9,24 @@ module.exports = {
   // 部署应用基本URL
   baseUrl: '/',
   css: {
-    modules: true
-    // loaderOptions: {
-    //   sass: {
-    //     data: `@import "@/assets/styles/variables.scss"`
-    //   }
-    // }
+    modules: true,
+    loaderOptions: {
+      sass: {
+        data: `@import "~@/assets/styles/variables.scss";`
+      }
+    }
   },
   devServer: {
     proxy: null
   },
   productionSourceMap: false,
   chainWebpack: config => {
-    config.plugins.delete('prefetch')
-    // config.resolve.alias.set('assets', resolve('src/assets'))
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].chunksSortMode = 'none'
+        return args
+      })
   },
   configureWebpack: config => {
     if (process.env.NODE_ENV === 'production') {

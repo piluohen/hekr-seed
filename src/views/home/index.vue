@@ -20,7 +20,6 @@ export default {
 }
 </script>
 <style lang="scss">
- @import "~@/assets/styles/variables.scss";
 .home-page{
   width: 100%;
   height: 100%;
