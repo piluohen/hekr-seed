@@ -2,7 +2,7 @@ import axios from 'axios'
 import store from '@/store'
 import router from '@/router'
 import { Message } from 'element-ui'
-import api from '@/api/server/index'
+import api from '@/service/server/index'
 
 const $axios = axios.create({
   timeout: 15000 // 请求超时时间

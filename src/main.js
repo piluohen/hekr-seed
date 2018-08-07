@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
+import Api from './service/api'
 import store from './store/index'
 import router from './router/index'
 import ElementUI from 'element-ui'
@@ -10,6 +11,7 @@ Vue.component(HKCard.name, HKCard)
 
 Vue.config.productionTip = false
 
+Vue.prototype.Api = Api
 Vue.use(ElementUI)
 
 new Vue({

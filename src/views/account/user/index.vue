@@ -49,7 +49,6 @@ import List from '@/mixins/list'
 import EditDialog from './edit-dialog'
 import SelectRole from './selectRole'
 import {defaultData} from '@/assets/utils/defaultData'
-import { getUserListApi, frozenUserApi } from '@/api/account'
 export default {
   name: 'AccountUser',
   mixins: [List],
@@ -66,7 +65,7 @@ export default {
   },
   methods: {
     getList (params) {
-      getUserListApi(params).then(response => {
+      this.Api.getUserListApi(params).then(response => {
         this.tableData = response.content
         this.pagination.total = response.total
         this.loading = false
@@ -76,7 +75,7 @@ export default {
     },
     // 冻结解冻账号
     frozenUserHandle (uid, lock) {
-      frozenUserApi(uid, lock).then(response => {
+      this.Api.frozenUserApi(uid, lock).then(response => {
         if (lock) {
           this.$message.success('禁用成功')
         } else {

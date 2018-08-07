@@ -16,7 +16,6 @@
 <script>
 import mixinsDialog from '@/mixins/dialog'
 import {validate} from '@/assets/utils/validate'
-import { updatePasswordApi } from '@/api/account'
 export default {
   name: 'PasswordDialog',
   mixins: [mixinsDialog],
@@ -72,7 +71,7 @@ export default {
         if (valid) {
           this.btnPasswordLoading = true
           let params = this.setParams(this.data)
-          updatePasswordApi(params).then(response => {
+          this.Api.updatePasswordApi(params).then(response => {
             this.postMsg('修改成功')
           }).catch(({response}) => {
             if (response.data.code === 3400007) {

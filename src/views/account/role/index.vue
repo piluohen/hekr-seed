@@ -38,7 +38,6 @@
 import List from '@/mixins/list'
 import EditDialog from './edit-dialog'
 import {defaultData} from '@/assets/utils/defaultData'
-import { getRoleListApi, deleteRoleApi } from '@/api/account'
 export default {
   name: 'AccountRole',
   mixins: [List],
@@ -57,7 +56,7 @@ export default {
   },
   methods: {
     getList (params) {
-      getRoleListApi(params).then(response => {
+      this.Api.getRoleListApi(params).then(response => {
         this.tableData = response.content
         this.pagination.total = response.total
         this.loading = false
@@ -72,7 +71,7 @@ export default {
         type: 'warning',
         customClass: 'hekr-message-box'
       }).then(() => {
-        deleteRoleApi(row.roleId).then(response => {
+        this.Api.deleteRoleApi(row.roleId).then(response => {
           this.$message.success('删除成功')
           this.getNewList()
         }).catch(({ response }) => {

@@ -46,7 +46,6 @@
 <script>
 import List from '@/mixins/list'
 import {defaultData} from '@/assets/utils/defaultData'
-import {getOplogListApi} from '@/api/account'
 export default {
   name: 'AccountOplog',
   mixins: [List],
@@ -63,7 +62,7 @@ export default {
   },
   methods: {
     getList (params) {
-      getOplogListApi(params).then(response => {
+      this.Api.getOplogListApi(params).then(response => {
         this.tableData = response.content
         this.pagination.total = response.total
         this.loading = false

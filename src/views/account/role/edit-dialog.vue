@@ -23,8 +23,6 @@
 </template>
 <script>
 import mixinsDialog from '@/mixins/dialog'
-// import {defaultData} from '@/assets/utils/defaultData'
-import {addRoleApi, updateRoleApi} from '@/api/account'
 export default {
   name: 'MaintainDialog',
   mixins: [mixinsDialog],
@@ -134,13 +132,13 @@ export default {
           let params = this.setParams(this.data)
           this.btnLoading = true
           if (this.type === 'add') {
-            addRoleApi(params).then(response => {
+            this.Api.addRoleApi(params).then(response => {
               this.postMsg('新增成功')
             }).catch(() => {
               this.btnLoading = false
             })
           } else if (this.type === 'edit') {
-            updateRoleApi(this.data.roleId, params).then(response => {
+            this.Api.updateRoleApi(this.data.roleId, params).then(response => {
               this.postMsg('修改成功')
             }).catch(() => {
               this.btnLoading = false

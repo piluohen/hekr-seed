@@ -18,7 +18,6 @@
       )
 </template>
 <script>
-import { getRoleListApi } from '@/api/account'
 export default {
   name: 'SelectRole',
   data () {
@@ -53,7 +52,7 @@ export default {
       if (query) {
         params.roleName = query
       }
-      getRoleListApi(params).then(response => {
+      this.Api.getRoleListApi(params).then(response => {
         this.roleList = response.content
       }).catch(() => {})
     },

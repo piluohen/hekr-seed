@@ -36,7 +36,6 @@ import mixinsDialog from '@/mixins/dialog'
 import SelectRole from './selectRole'
 import {defaultData} from '@/assets/utils/defaultData'
 import { validate } from '@/assets/utils/validate'
-import { addUserApi, updateUserApi } from '@/api/account'
 export default {
   name: 'MaintainDialog',
   mixins: [mixinsDialog],
@@ -125,30 +124,18 @@ export default {
           let params = this.setParams(this.data)
           this.btnLoading = true
           if (this.type === 'add') {
-            addUserApi(params).then(response => {
+            this.Api.addUserApi(params).then(response => {
               this.postMsg('新增成功')
             }).catch(() => {
               this.btnLoading = false
             })
           } else if (this.type === 'edit') {
-            updateUserApi(this.data.userId, params).then(response => {
+            this.Api.updateUserApi(this.data.userId, params).then(response => {
               this.postMsg('修改成功')
             }).catch(() => {
               this.btnLoading = false
             })
           }
-        }
-        if (valid) {
-          this.btnLoading = true
-          this.closeDialog()
-          this.btnLoading = false
-          // let params = this.setParams(this.data)
-          // handleAlarmApi(params).then(response => {
-          //   this.$message.success('处理成功')
-          //   this.btnLoading = false
-          //   this.closeDialog()
-          //   this.$emit('refresh')
-          // }).catch(() => {})
         }
       })
     }

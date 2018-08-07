@@ -1,4 +1,4 @@
-import { loginApi, getUserInfoApi } from '@/api/login'
+import Api from '@/service/api/login'
 import { getToken, setToken, removeToken } from '@/assets/utils/auth'
 
 // 获取本地存储信息
@@ -46,7 +46,7 @@ const user = {
         pid: pid
       }
       return new Promise((resolve, reject) => {
-        loginApi(loginData).then(rsp => {
+        Api.loginApi(loginData).then(rsp => {
           const respToken = {
             access_token: rsp.access_token,
             refresh_token: rsp.refresh_token
@@ -63,7 +63,7 @@ const user = {
     },
     GetInfo: ({ commit, state }) => {
       return new Promise((resolve, reject) => {
-        getUserInfoApi().then(rsp => {
+        Api.getUserInfoApi().then(rsp => {
           // commit('SET_ROLES', rsp.role)
           commit('SET_USERINFO', rsp)
           // if (rsp.role.includes('enterprise')) {
