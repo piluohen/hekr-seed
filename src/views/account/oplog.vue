@@ -28,7 +28,7 @@
             :picker-options="pickerOptions"
           )
         .item
-          el-button(type="success", size="small", @click="searchHandle") 查询
+          el-button(type="success", size="small", @click="searchHandle" v-auth:every="['XMGK', 'SBLB']") 查询
   hk-card(:top="20" :bottom="20")
     .hekr-table-container
       el-table.hekr-table(:data="tableData", tooltip-effect="light", v-loading="loading", :element-loading-text="loadingText")

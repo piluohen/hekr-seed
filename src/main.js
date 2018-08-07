@@ -6,6 +6,7 @@ import router from './router/index'
 import ElementUI from 'element-ui'
 import './permission' // permission control
 import HKCard from '@/components/hk-card'
+import Directive from './service/directive/index'
 
 Vue.component(HKCard.name, HKCard)
 
@@ -13,6 +14,8 @@ Vue.config.productionTip = false
 
 Vue.prototype.Api = Api
 Vue.use(ElementUI)
+console.log(Directive)
+Vue.use(Directive)
 
 new Vue({
   store,
