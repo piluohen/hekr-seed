@@ -14,10 +14,10 @@ function filterAsyncRouter (navRouter, roles) {
   const accessedRouters = navRouter.filter(route => {
     if (hasPermission(roles, route)) {
       if (route.children && route.children.length > 0) {
-        if (route.redirect) {
+        route.children = filterAsyncRouter(route.children, roles)
+        if (route.redirect && route.children[0].path) {
           route.redirect = route.path + '/' + route.children[0].path
         }
-        route.children = filterAsyncRouter(route.children, roles)
       }
       return true
     }
