@@ -9,7 +9,6 @@
 <script>
 import AppNav from './nav'
 import DropDown from './dropdown'
-import {mapState} from 'vuex'
 export default {
   name: 'Aside',
   components: {
@@ -18,20 +17,6 @@ export default {
   },
   data () {
     return {}
-  },
-  computed: {
-    ...mapState(['user']),
-    userInfo () {
-      return this.user.userInfo || {}
-    }
-  },
-  created () {
-    this.GetAuthority()
-  },
-  methods: {
-    GetAuthority () {
-      this.$store.dispatch('GetAuthority', this.userInfo)
-    }
   }
 }
 </script>

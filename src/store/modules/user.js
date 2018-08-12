@@ -20,18 +20,18 @@ const getUserFromLocal = () => {
 const user = {
   state: {
     token: getUserFromLocal(),
-    isSuperAdmin: false,
+    authorities: [],
     userInfo: []
   },
   mutations: {
-    SET_TOKEN: (state, token) => {
-      state.token = token
+    SET_TOKEN: (state, payload) => {
+      state.token = payload
     },
-    SET_USERINFO: (state, userInfo) => {
-      state.userInfo = userInfo
+    SET_USERINFO: (state, payload) => {
+      state.userInfo = payload
     },
-    IS_SUPER_ADMIN: (state, isSuperAdmin) => {
-      state.isSuperAdmin = isSuperAdmin
+    SET_AUTHORITIES: (state, payload) => {
+      state.authorities = payload
     }
   },
   actions: {
@@ -64,11 +64,9 @@ const user = {
     GetInfo: ({ commit, state }) => {
       return new Promise((resolve, reject) => {
         Api.getUserInfoApi().then(rsp => {
-          // commit('SET_ROLES', rsp.role)
           commit('SET_USERINFO', rsp)
-          // if (rsp.role.includes('enterprise')) {
-          //   commit('IS_SUPER_ADMIN', true)
-          // }
+          commit('SET_AUTHORITIES', rsp.resouces)
+          commit('SET_WEBNAVLIST', state.authorities)
           resolve()
         }).catch(error => {
           reject(error)

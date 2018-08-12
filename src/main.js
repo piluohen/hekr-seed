@@ -14,7 +14,6 @@ Vue.config.productionTip = false
 
 Vue.prototype.Api = Api
 Vue.use(ElementUI)
-console.log(Directive)
 Vue.use(Directive)
 
 new Vue({
