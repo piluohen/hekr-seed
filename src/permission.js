@@ -16,10 +16,10 @@ router.beforeEach((to, from, next) => {
     } else {
       if (store && store.getters.addRouters.length === 0) {
         store.dispatch('GetInfo').then(res => { // 拉取用户信息
-          let data = store.state.user.userInfo
+          let data = store.getters.authorities
           store.dispatch('GenerateRoutes', { data }).then(() => { // 根据roles权限生成可访问的路由表
             router.addRoutes(store.getters.addRouters) // 动态添加可访问路由表
-            if (data.resouces && data.resouces.length > 0) {
+            if (data && data.length > 0) {
               next({ ...to, replace: true })
             } else {
               Message.error('账号异常')

@@ -31,21 +31,15 @@ const route = {
     addRouters: []
   },
   mutations: {
-    SET_ROUTERS: (state, routers) => {
-      state.addRouters = routers
-      state.routers = publicRouter.concat(routers)
+    SET_ROUTERS: (state, payload) => {
+      state.addRouters = payload
+      state.routers = publicRouter.concat(payload)
     }
   },
   actions: {
     GenerateRoutes: ({ commit }, { data }) => {
       return new Promise(resolve => {
-        const roles = data.resouces
-        let accessedRouters = navRouter
-        // if (data.role.includes('enterprise')) {
-        //   accessedRouters = navRouter
-        // } else {
-        accessedRouters = filterAsyncRouter(navRouter, roles)
-        // }
+        let accessedRouters = filterAsyncRouter(navRouter, data)
         commit('SET_ROUTERS', accessedRouters)
         resolve()
       })

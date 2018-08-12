@@ -20,8 +20,8 @@ const route = {
     moduleList: []
   },
   mutations: {
-    SET_MODULELIST: (state, data) => {
-      state.moduleList = filterModule(defaultData.moduleList, data)
+    SET_MODULELIST: (state, payload) => {
+      state.moduleList = filterModule(defaultData.moduleList, payload)
     }
   }
 }

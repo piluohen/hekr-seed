@@ -38,7 +38,7 @@ const user = {
     Login: ({ commit }, userInfo) => {
       var username = userInfo.account.trim()
       var checkPass = userInfo.checkPass.trim()
-      var pid = (username === '18091781756' || '18368002600') ? '00000000000' : '01998843645'
+      let pid = username === '18091781756' ? '00000000000' : '01286331490'
       var loginData = {
         username: username,
         password: checkPass,
