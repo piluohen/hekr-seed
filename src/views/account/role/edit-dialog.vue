@@ -13,9 +13,9 @@
         el-col(:span="24")
           el-form-item.hekr-textarea(label="角色描述", prop="roleDesc")
             el-input(size="small", type="textarea", :rows="2", v-model="data.roleDesc")
-        el-col(:span="24" v-if="webNavList")
+        el-col(:span="24" v-if="moduleList")
           hk-card(:top="10" :bottom="20" title="选择功能模块")
-            el-tree.role-tree(:data="webNavList", show-checkbox, :default-expand-all="true", ref="tree", node-key="id", :default-checked-keys="[]",
+            el-tree.role-tree(:data="moduleList", show-checkbox, :default-expand-all="true", ref="tree", node-key="id", :default-checked-keys="[]",
               :props="defaultProps")
     .hekr-dialog-footer(slot="footer")
       el-button.hekr-btn(size="small" @click="closeDialog") 取消
@@ -29,7 +29,7 @@ export default {
   data () {
     return {
       dialogName: '用户',
-      webNavList: [],
+      moduleList: [],
       initRules: {
         roleName: [
           {required: true, message: '请输入该字段', trigger: 'blur'}
@@ -48,7 +48,7 @@ export default {
     }
   },
   beforeMount () {
-    this.webNavList = this.authority.webNavList
+    this.moduleList = this.authority.moduleList
   },
   mounted () {
   },
@@ -78,8 +78,8 @@ export default {
     // 处理权限数组
     setResource (keys) {
       let arr = []
-      let webNavList = [].concat(this.webNavList)
-      webNavList.forEach(item => {
+      let moduleList = [].concat(this.moduleList)
+      moduleList.forEach(item => {
         if (item.children && item.children.length > 0) {
           item.children.forEach(v => {
             if (v.children && v.children.length > 0) {

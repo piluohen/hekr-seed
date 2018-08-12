@@ -17,11 +17,11 @@ const filterModule = (allList, authorities) => {
 
 const route = {
   state: {
-    webNavList: []
+    moduleList: []
   },
   mutations: {
-    SET_WEBNAVLIST: (state, data) => {
-      state.webNavList = filterModule(defaultData.webNavList, data)
+    SET_MODULELIST: (state, data) => {
+      state.moduleList = filterModule(defaultData.moduleList, data)
     }
   }
 }

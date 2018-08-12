@@ -76,7 +76,7 @@ export const defaultData = {
     {label: '误报', value: 'MISREPORT'}
   ],
   // 功能模块
-  webNavList: [
+  moduleList: [
     {id: 'XMGK', label: '项目概况'},
     {id: 'SBLB', label: '设备列表'},
     {id: 'BJGL', label: '报警管理'},

@@ -66,7 +66,7 @@ const user = {
         Api.getUserInfoApi().then(rsp => {
           commit('SET_USERINFO', rsp)
           commit('SET_AUTHORITIES', rsp.resouces)
-          commit('SET_WEBNAVLIST', state.authorities)
+          commit('SET_MODULELIST', state.authorities)
           resolve()
         }).catch(error => {
           reject(error)
